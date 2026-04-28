@@ -371,40 +371,27 @@
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* ── Team mobile scroll ── */
+  /* ── Team mobile ── */
   @media (max-width: 640px) {
-    .team-grid {
-      display: flex !important;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1rem;
-      padding-bottom: .5rem;
-      -webkit-overflow-scrolling: touch;
-    }
-    .team-grid::-webkit-scrollbar { display: none; }
-    .team-glow-wrap {
-      min-width: 64vw;
-      max-width: 64vw;
-      flex-shrink: 0;
-      scroll-snap-align: center;
-      aspect-ratio: 2/3;
-    }
+    .team-glow-wrap { aspect-ratio: 2/3; }
   }
 
-  /* ── Services mobile image ── */
-  .service-mobile-img {
-    display: none;
-    width: 100%;
-    border-radius: 16px;
+  /* ── Services accordion mobile ── */
+  .service-accordion {
+    max-height: 0;
     overflow: hidden;
-    margin-top: 1.5rem;
-    aspect-ratio: 16/9;
+    transition: max-height .45s ease;
+    border-radius: 12px;
+    margin-bottom: 2px;
   }
-  .service-mobile-img img {
-    width: 100%; height: 100%; object-fit: cover;
+  .service-accordion.open { max-height: 220px; }
+  .service-accordion img {
+    width: 100%; height: 200px;
+    object-fit: cover; border-radius: 12px;
+    display: block;
   }
-  @media (max-width: 900px) {
-    .service-mobile-img { display: block; }
+  @media (min-width: 901px) {
+    .service-accordion { display: none; }
   }
 
   /* ── Testimonial mobile ── */
@@ -589,6 +576,8 @@
           </div>
           <span class="service-row-arrow material-symbols-outlined">arrow_forward</span>
         </div>
+        <div class="service-accordion open"><img src="img-dentistica.jpg" alt="Dentística Geral"/></div>
+
         <div class="service-row" data-idx="1">
           <span class="service-row-num">02</span>
           <div class="service-row-inner">
@@ -597,6 +586,8 @@
           </div>
           <span class="service-row-arrow material-symbols-outlined">arrow_forward</span>
         </div>
+        <div class="service-accordion"><img src="img-estetica.jpg" alt="Estética Dental"/></div>
+
         <div class="service-row" data-idx="2">
           <span class="service-row-num">03</span>
           <div class="service-row-inner">
@@ -605,6 +596,8 @@
           </div>
           <span class="service-row-arrow material-symbols-outlined">arrow_forward</span>
         </div>
+        <div class="service-accordion"><img src="img-ortodontia.jpg" alt="Ortodontia"/></div>
+
         <div class="service-row" data-idx="3">
           <span class="service-row-num">04</span>
           <div class="service-row-inner">
@@ -613,6 +606,8 @@
           </div>
           <span class="service-row-arrow material-symbols-outlined">arrow_forward</span>
         </div>
+        <div class="service-accordion"><img src="img-clareamento.jpg" alt="Clareamento"/></div>
+
         <div class="service-row" data-idx="4">
           <span class="service-row-num">05</span>
           <div class="service-row-inner">
@@ -621,11 +616,7 @@
           </div>
           <span class="service-row-arrow material-symbols-outlined">arrow_forward</span>
         </div>
-      </div>
-
-      <!-- Mobile image (aparece abaixo da lista) -->
-      <div class="service-mobile-img">
-        <img id="mobile-service-img" src="img-dentistica.jpg" alt="Serviço"/>
+        <div class="service-accordion"><img src="img-implantes.jpg" alt="Implantes"/></div>
       </div>
 
       <!-- Right: images -->
@@ -1032,13 +1023,12 @@ revealEls.forEach(el => revealObs.observe(el));
 const serviceRows = document.querySelectorAll('.service-row');
 const serviceImgs = document.querySelectorAll('.service-slide-img');
 
-const mobileServiceImgs = ['img-dentistica.jpg','img-estetica.jpg','img-ortodontia.jpg','img-clareamento.jpg','img-implantes.jpg'];
+const accordions = document.querySelectorAll('.service-accordion');
 
 function setActiveService(idx) {
   serviceRows.forEach((r, i) => r.classList.toggle('active', i === idx));
   serviceImgs.forEach((img, i) => img.classList.toggle('active', i === idx));
-  const mImg = document.getElementById('mobile-service-img');
-  if (mImg) mImg.src = mobileServiceImgs[idx];
+  accordions.forEach((a, i) => a.classList.toggle('open', i === idx));
 }
 
 setActiveService(0);
