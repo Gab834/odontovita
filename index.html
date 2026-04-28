@@ -402,14 +402,177 @@
 </head>
 <body>
 
-<!-- ═══ FLOATING WHATSAPP ═══ -->
-<a href="https://wa.me/5546999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta."
-   target="_blank"
-   class="wa-btn fixed bottom-6 right-6 z-50 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
-  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+<!-- ═══ CHATBOT WIDGET ═══ -->
+<style>
+  .chat-widget { position:fixed; bottom:24px; right:24px; z-index:9998; font-family:'Inter',sans-serif; }
+
+  .chat-bubble-btn {
+    width:60px; height:60px; border-radius:50%;
+    background:linear-gradient(135deg,#1a5cff,#4D9EFF);
+    box-shadow:0 8px 32px rgba(77,158,255,.45);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; border:none; outline:none;
+    transition:transform .3s ease, box-shadow .3s ease;
+    animation: wa-pulse 2.5s infinite;
+  }
+  .chat-bubble-btn:hover { transform:scale(1.1); box-shadow:0 12px 40px rgba(77,158,255,.6); }
+
+  .chat-window {
+    position:absolute; bottom:76px; right:0;
+    width:320px; border-radius:20px; overflow:hidden;
+    background:#0d1b33;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 24px 60px rgba(0,0,0,.6);
+    transform:scale(0.85) translateY(20px);
+    transform-origin:bottom right;
+    opacity:0; pointer-events:none;
+    transition:all .35s cubic-bezier(0.33,1,0.68,1);
+  }
+  .chat-window.open { transform:scale(1) translateY(0); opacity:1; pointer-events:all; }
+
+  .chat-header {
+    background:linear-gradient(135deg,#1a5cff,#1246cc);
+    padding:14px 16px; display:flex; align-items:center; gap:10px;
+  }
+  .chat-avatar {
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,.15);
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; flex-shrink:0;
+  }
+  .chat-header-info h4 { font-size:13px; font-weight:700; color:#fff; margin:0; }
+  .chat-header-info span { font-size:11px; color:rgba(255,255,255,.65); display:flex; align-items:center; gap:4px; }
+  .chat-online-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; display:inline-block; }
+
+  .chat-body { padding:16px; display:flex; flex-direction:column; gap:10px; }
+
+  .chat-msg {
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px 14px 14px 4px;
+    padding:10px 14px; font-size:13px;
+    color:rgba(239,244,255,.85); line-height:1.5;
+    max-width:85%;
+  }
+
+  .chat-typing {
+    display:flex; gap:4px; align-items:center;
+    padding:10px 14px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px 14px 14px 4px;
+    width:fit-content;
+  }
+  .chat-typing span {
+    width:6px; height:6px; border-radius:50%;
+    background:rgba(239,244,255,.4);
+    animation:typing-dot .9s infinite;
+  }
+  .chat-typing span:nth-child(2) { animation-delay:.2s; }
+  .chat-typing span:nth-child(3) { animation-delay:.4s; }
+  @keyframes typing-dot {
+    0%,60%,100% { transform:translateY(0); opacity:.4; }
+    30% { transform:translateY(-4px); opacity:1; }
+  }
+
+  .chat-options { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
+  .chat-option {
+    background:rgba(77,158,255,.12);
+    border:1px solid rgba(77,158,255,.3);
+    border-radius:10px; padding:9px 14px;
+    font-size:12px; font-weight:600; color:#4D9EFF;
+    cursor:pointer; text-align:left;
+    transition:all .2s ease;
+    text-decoration:none; display:block;
+  }
+  .chat-option:hover { background:rgba(77,158,255,.22); border-color:#4D9EFF; color:#fff; }
+
+  .chat-footer {
+    padding:10px 16px;
+    border-top:1px solid rgba(255,255,255,.05);
+    font-size:10px; color:rgba(239,244,255,.2);
+    text-align:center; letter-spacing:.05em;
+  }
+</style>
+
+<div class="chat-widget">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar">🦷</div>
+      <div class="chat-header-info">
+        <h4>OdontoVita</h4>
+        <span><span class="chat-online-dot"></span> Online agora</span>
+      </div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-typing" id="chatTyping">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="chat-footer">Responde em menos de 1 minuto</div>
+  </div>
+
+  <button class="chat-bubble-btn" onclick="toggleChat()" id="chatBtn">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  let chatOpened = false;
+  const chatMessages = [
+    'Olá! 👋 Bem-vindo à <strong>OdontoVita</strong>.',
+    'Como posso te ajudar hoje?'
+  ];
+  const chatOptions = [
+    { text: '📅 Quero agendar uma consulta', msg: 'Olá! Gostaria de agendar uma consulta.' },
+    { text: '😁 Quero saber sobre os serviços', msg: 'Olá! Quero saber mais sobre os serviços disponíveis.' },
+    { text: '💬 Falar com um dentista agora', msg: 'Olá! Gostaria de falar com um dentista.' },
+  ];
+
+  function toggleChat() {
+    const win = document.getElementById('chatWindow');
+    win.classList.toggle('open');
+    if (!chatOpened) { chatOpened = true; startChat(); }
+  }
+
+  function startChat() {
+    const body = document.getElementById('chatBody');
+    let delay = 800;
+    chatMessages.forEach((msg, i) => {
+      setTimeout(() => {
+        const typing = document.getElementById('chatTyping');
+        if (typing) typing.remove();
+        const div = document.createElement('div');
+        div.className = 'chat-msg';
+        div.innerHTML = msg;
+        body.appendChild(div);
+        if (i === chatMessages.length - 1) {
+          setTimeout(() => {
+            const opts = document.createElement('div');
+            opts.className = 'chat-options';
+            chatOptions.forEach(opt => {
+              const a = document.createElement('a');
+              a.className = 'chat-option';
+              a.textContent = opt.text;
+              a.href = 'https://wa.me/5546999999999?text=' + encodeURIComponent(opt.msg);
+              a.target = '_blank';
+              opts.appendChild(a);
+            });
+            body.appendChild(opts);
+          }, 400);
+        } else {
+          const t = document.createElement('div');
+          t.className = 'chat-typing'; t.id = 'chatTyping';
+          t.innerHTML = '<span></span><span></span><span></span>';
+          body.appendChild(t);
+        }
+      }, delay);
+      delay += 1200;
+    });
+  }
+</script>
 
 <!-- ═══ MOBILE MENU ═══ -->
 <div id="mobile-menu">
