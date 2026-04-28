@@ -383,10 +383,28 @@
     }
     .team-grid::-webkit-scrollbar { display: none; }
     .team-glow-wrap {
-      min-width: 72vw;
+      min-width: 64vw;
+      max-width: 64vw;
       flex-shrink: 0;
       scroll-snap-align: center;
+      aspect-ratio: 2/3;
     }
+  }
+
+  /* ── Services mobile image ── */
+  .service-mobile-img {
+    display: none;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    aspect-ratio: 16/9;
+  }
+  .service-mobile-img img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  @media (max-width: 900px) {
+    .service-mobile-img { display: block; }
   }
 
   /* ── Testimonial mobile ── */
@@ -603,6 +621,11 @@
           </div>
           <span class="service-row-arrow material-symbols-outlined">arrow_forward</span>
         </div>
+      </div>
+
+      <!-- Mobile image (aparece abaixo da lista) -->
+      <div class="service-mobile-img">
+        <img id="mobile-service-img" src="img-dentistica.jpg" alt="Serviço"/>
       </div>
 
       <!-- Right: images -->
@@ -1009,14 +1032,19 @@ revealEls.forEach(el => revealObs.observe(el));
 const serviceRows = document.querySelectorAll('.service-row');
 const serviceImgs = document.querySelectorAll('.service-slide-img');
 
+const mobileServiceImgs = ['img-dentistica.jpg','img-estetica.jpg','img-ortodontia.jpg','img-clareamento.jpg','img-implantes.jpg'];
+
 function setActiveService(idx) {
   serviceRows.forEach((r, i) => r.classList.toggle('active', i === idx));
   serviceImgs.forEach((img, i) => img.classList.toggle('active', i === idx));
+  const mImg = document.getElementById('mobile-service-img');
+  if (mImg) mImg.src = mobileServiceImgs[idx];
 }
 
 setActiveService(0);
 serviceRows.forEach((row, idx) => {
   row.addEventListener('mouseenter', () => setActiveService(idx));
+  row.addEventListener('click', () => setActiveService(idx));
 });
 
 // ── 3D Tilt cards ──
