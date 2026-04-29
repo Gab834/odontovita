@@ -60,15 +60,6 @@
   .reveal-d3 { transition-delay: .3s; }
   .reveal-d4 { transition-delay: .4s; }
 
-  /* ── iOS: animações mais rápidas ── */
-  @media (max-width: 768px) {
-    .reveal { transition: opacity .35s ease, transform .35s ease; }
-    .reveal-d1 { transition-delay: .05s; }
-    .reveal-d2 { transition-delay: .1s; }
-    .reveal-d3 { transition-delay: .15s; }
-    .reveal-d4 { transition-delay: .2s; }
-  }
-
   /* ── WA pulse ── */
   @keyframes wa-pulse {
     0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
@@ -859,7 +850,7 @@
 
       <div class="reveal team-glow-wrap" data-glow data-tilt>
         <div class="team-video-inner">
-          <video autoplay loop muted playsinline preload="auto">
+          <video autoplay loop muted playsinline preload="metadata">
             <source src="video-dr-rafael.mp4" type="video/mp4"/>
           </video>
           <div class="tv-overlay"></div>
@@ -868,7 +859,7 @@
 
       <div class="reveal reveal-d2 team-glow-wrap" data-glow data-tilt>
         <div class="team-video-inner">
-          <video autoplay loop muted playsinline preload="auto">
+          <video autoplay loop muted playsinline preload="metadata">
             <source src="video-dra-sofia.mp4" type="video/mp4"/>
           </video>
           <div class="tv-overlay"></div>
@@ -877,7 +868,7 @@
 
       <div class="reveal reveal-d3 team-glow-wrap" data-glow data-tilt>
         <div class="team-video-inner">
-          <video autoplay loop muted playsinline preload="auto">
+          <video autoplay loop muted playsinline preload="metadata">
             <source src="video-dr-lucas.mp4" type="video/mp4"/>
           </video>
           <div class="tv-overlay"></div>
