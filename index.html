@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>OdontoVita | Odontologia Premium</title>
 <meta name="description" content="Clínica odontológica premium com atendimento especializado em estética dental, ortodontia, implantes e clareamento. Agende sua consulta."/>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%231a5cff'/><stop offset='100%25' stop-color='%234D9EFF'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='23' text-anchor='middle' font-size='18'>🦷</text></svg>"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%238A6D36'/><stop offset='100%25' stop-color='%23B8924A'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='23' text-anchor='middle' font-size='18'>🦷</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -13,7 +13,7 @@
   tailwind.config = {
     theme: {
       extend: {
-        colors: { cream: "#EFF4FF", accent: "#4D9EFF" },
+        colors: { cream: "#F7F6F2", accent: "#B8924A" },
         fontFamily: {
           display: ["Playfair Display", "serif"],
           heading: ["Montserrat", "sans-serif"],
@@ -25,16 +25,16 @@
 </script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: #020B1C; color: #EFF4FF; overflow-x: hidden; }
+  body { font-family: 'Inter', sans-serif; background: #F7F6F2; color: #0A1628; overflow-x: hidden; }
 
   .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24; }
 
   /* ── Liquid Glass ── */
   .lg {
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.65);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.8), 0 2px 20px rgba(10,22,40,0.06);
     position: relative;
     overflow: hidden;
   }
@@ -44,7 +44,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(180deg,rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.05) 30%,rgba(255,255,255,0) 50%,rgba(255,255,255,0.05) 70%,rgba(255,255,255,0.2) 100%);
+    background: linear-gradient(180deg,rgba(255,255,255,0.9) 0%,rgba(184,146,74,0.15) 30%,rgba(184,146,74,0.06) 60%,rgba(255,255,255,0.5) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -69,7 +69,7 @@
   .wa-btn { animation: wa-pulse 2s infinite; }
 
   /* ── Buttons ── */
-  .btn-accent { background: linear-gradient(135deg,#1a5cff,#4D9EFF); transition: opacity .3s; }
+  .btn-accent { background: linear-gradient(135deg,#8A6D36,#B8924A); transition: opacity .3s; }
   .btn-accent:hover { opacity: .85; }
 
   /* ── Hero animated gradient blobs ── */
@@ -102,38 +102,38 @@
     align-items: baseline;
     gap: 1.25rem;
     padding: 1.5rem 0;
-    border-top: 1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid rgba(10,22,40,0.1);
     cursor: pointer;
     transition: all .35s ease;
   }
-  .service-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .service-row:last-child { border-bottom: 1px solid rgba(10,22,40,0.1); }
 
   .service-row-num {
     font-family: 'Inter'; font-size: 11px; font-weight: 500;
-    color: rgba(239,244,255,.25); min-width: 22px; flex-shrink: 0;
+    color: rgba(10,22,40,.25); min-width: 22px; flex-shrink: 0;
     transition: color .3s;
   }
   .service-row.active .service-row-num,
-  .service-row:hover .service-row-num { color: #4D9EFF; }
+  .service-row:hover .service-row-num { color: #B8924A; }
 
   .service-row-inner { flex: 1; display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
 
   .service-row-title {
     font-family: 'Montserrat'; font-weight: 900; text-transform: uppercase;
     font-size: clamp(22px, 3.5vw, 42px); line-height: 1;
-    color: rgba(239,244,255,.18);
+    color: rgba(10,22,40,.15);
     transition: color .35s, transform .35s;
     transform: translateX(0);
   }
   .service-row.active .service-row-title,
   .service-row:hover .service-row-title {
-    color: #EFF4FF;
+    color: #0A1628;
     transform: translateX(8px);
   }
 
   .service-row-desc {
     font-size: 12px; font-family: 'Inter'; letter-spacing: .08em;
-    color: #4D9EFF; text-transform: uppercase;
+    color: #B8924A; text-transform: uppercase;
     opacity: 0; transform: translateY(6px);
     transition: opacity .35s, transform .35s;
   }
@@ -141,12 +141,12 @@
   .service-row:hover .service-row-desc { opacity: 1; transform: translateY(0); }
 
   .service-row-arrow {
-    font-size: 22px; color: rgba(239,244,255,.15);
+    font-size: 22px; color: rgba(10,22,40,.15);
     margin-left: auto; flex-shrink: 0;
     transition: color .3s, transform .3s;
   }
   .service-row.active .service-row-arrow,
-  .service-row:hover .service-row-arrow { color: #4D9EFF; transform: translateX(4px); }
+  .service-row:hover .service-row-arrow { color: #B8924A; transform: translateX(4px); }
 
   /* images */
   .slideshow-images-col { position: relative; height: 560px; border-radius: 24px; overflow: hidden; }
@@ -239,13 +239,13 @@
     transition: transform .5s ease;
     box-shadow: 0 24px 60px rgba(0,0,0,.5);
 
-    --base: 210;
-    --spread: 60;
+    --base: 38;
+    --spread: 30;
     --size: 400;
     --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
     --spotlight-size: calc(var(--size) * 1px);
 
-    background: rgba(77,158,255,0.05);
+    background: rgba(184,146,74,0.06);
     background-image: radial-gradient(
       var(--spotlight-size) var(--spotlight-size) at
       calc(var(--lx, 50%) ) calc(var(--ly, 50%)),
@@ -339,7 +339,7 @@
     transition: all .35s ease;
     cursor: default;
   }
-  .test-card:hover { background: rgba(255,255,255,0.06) !important; transform: translateY(-5px); }
+  .test-card:hover { background: rgba(10,22,40,0.04) !important; transform: translateY(-5px); }
 
   /* ── Grain ── */
   body::after {
@@ -348,15 +348,15 @@
     opacity:.025; mix-blend-mode:overlay;
   }
 
-  input, select, textarea { color-scheme: dark; }
+  input, select, textarea { color-scheme: light; }
 
   /* ── Nav scroll ── */
   nav { transition: background .3s ease, box-shadow .3s ease, padding .3s ease; }
   nav.scrolled {
-    background: rgba(2,11,28,0.96) !important;
+    background: rgba(247,246,242,0.96) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    box-shadow: 0 1px 0 rgba(10,22,40,0.08);
     padding-top: 12px !important;
     padding-bottom: 12px !important;
   }
@@ -364,7 +364,7 @@
   /* ── Mobile menu ── */
   #mobile-menu {
     position: fixed; inset: 0; z-index: 39;
-    background: rgba(2,11,28,.97);
+    background: rgba(247,246,242,.97);
     backdrop-filter: blur(20px);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
@@ -376,7 +376,7 @@
 
   .hamburger span {
     display: block; width: 24px; height: 2px;
-    background: #EFF4FF; border-radius: 2px;
+    background: #0A1628; border-radius: 2px;
     transition: transform .3s ease, opacity .3s ease;
   }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -420,21 +420,21 @@
 
   .chat-bubble-btn {
     width:60px; height:60px; border-radius:50%;
-    background:linear-gradient(135deg,#1a5cff,#4D9EFF);
-    box-shadow:0 8px 32px rgba(77,158,255,.45);
+    background:linear-gradient(135deg,#8A6D36,#B8924A);
+    box-shadow:0 8px 32px rgba(184,146,74,.45);
     display:flex; align-items:center; justify-content:center;
     cursor:pointer; border:none; outline:none;
     transition:transform .3s ease, box-shadow .3s ease;
     animation: wa-pulse 2.5s infinite;
   }
-  .chat-bubble-btn:hover { transform:scale(1.1); box-shadow:0 12px 40px rgba(77,158,255,.6); }
+  .chat-bubble-btn:hover { transform:scale(1.1); box-shadow:0 12px 40px rgba(184,146,74,.6); }
 
   .chat-window {
     position:absolute; bottom:76px; right:0;
     width:320px; border-radius:20px; overflow:hidden;
-    background:#0d1b33;
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 24px 60px rgba(0,0,0,.6);
+    background:#F7F6F2;
+    border:1px solid rgba(10,22,40,.1);
+    box-shadow:0 24px 60px rgba(10,22,40,.18);
     transform:scale(0.85) translateY(20px);
     transform-origin:bottom right;
     opacity:0; pointer-events:none;
@@ -443,7 +443,7 @@
   .chat-window.open { transform:scale(1) translateY(0); opacity:1; pointer-events:all; }
 
   .chat-header {
-    background:linear-gradient(135deg,#1a5cff,#1246cc);
+    background:linear-gradient(135deg,#8A6D36,#6B5229);
     padding:14px 16px; display:flex; align-items:center; gap:10px;
   }
   .chat-avatar {
@@ -459,25 +459,25 @@
   .chat-body { padding:16px; display:flex; flex-direction:column; gap:10px; }
 
   .chat-msg {
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.07);
+    background:rgba(10,22,40,.05);
+    border:1px solid rgba(10,22,40,.08);
     border-radius:14px 14px 14px 4px;
     padding:10px 14px; font-size:13px;
-    color:rgba(239,244,255,.85); line-height:1.5;
+    color:rgba(10,22,40,.8); line-height:1.5;
     max-width:85%;
   }
 
   .chat-typing {
     display:flex; gap:4px; align-items:center;
     padding:10px 14px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.07);
+    background:rgba(10,22,40,.05);
+    border:1px solid rgba(10,22,40,.08);
     border-radius:14px 14px 14px 4px;
     width:fit-content;
   }
   .chat-typing span {
     width:6px; height:6px; border-radius:50%;
-    background:rgba(239,244,255,.4);
+    background:rgba(10,22,40,.35);
     animation:typing-dot .9s infinite;
   }
   .chat-typing span:nth-child(2) { animation-delay:.2s; }
@@ -489,20 +489,20 @@
 
   .chat-options { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
   .chat-option {
-    background:rgba(77,158,255,.12);
-    border:1px solid rgba(77,158,255,.3);
+    background:rgba(184,146,74,.1);
+    border:1px solid rgba(184,146,74,.3);
     border-radius:10px; padding:9px 14px;
-    font-size:12px; font-weight:600; color:#4D9EFF;
+    font-size:12px; font-weight:600; color:#B8924A;
     cursor:pointer; text-align:left;
     transition:all .2s ease;
     text-decoration:none; display:block;
   }
-  .chat-option:hover { background:rgba(77,158,255,.22); border-color:#4D9EFF; color:#fff; }
+  .chat-option:hover { background:rgba(184,146,74,.2); border-color:#B8924A; color:#0A1628; }
 
   .chat-footer {
     padding:10px 16px;
-    border-top:1px solid rgba(255,255,255,.05);
-    font-size:10px; color:rgba(239,244,255,.2);
+    border-top:1px solid rgba(10,22,40,.08);
+    font-size:10px; color:rgba(10,22,40,.3);
     text-align:center; letter-spacing:.05em;
   }
 </style>
@@ -588,10 +588,10 @@
 
 <!-- ═══ MOBILE MENU ═══ -->
 <div id="mobile-menu">
-  <a onclick="toggleMenu()" href="#servicos" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#EFF4FF;">Serviços</a>
-  <a onclick="toggleMenu()" href="#equipe" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#EFF4FF;">Equipe</a>
-  <a onclick="toggleMenu()" href="#depoimentos" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#EFF4FF;">Depoimentos</a>
-  <a onclick="toggleMenu()" href="#contato" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#EFF4FF;">Contato</a>
+  <a onclick="toggleMenu()" href="#servicos" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#0A1628;">Serviços</a>
+  <a onclick="toggleMenu()" href="#equipe" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#0A1628;">Equipe</a>
+  <a onclick="toggleMenu()" href="#depoimentos" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#0A1628;">Depoimentos</a>
+  <a onclick="toggleMenu()" href="#contato" style="font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.1em;text-transform:uppercase;color:#0A1628;">Contato</a>
   <a href="https://wa.me/5546999999999?text=Quero%20agendar%20uma%20consulta!" target="_blank"
      class="btn-accent text-white px-8 py-4 rounded-full mt-4"
      style="font-family:'Montserrat';font-size:14px;font-weight:700;letter-spacing:.06em;">
@@ -645,9 +645,9 @@
 
   <!-- Animated gradient blobs -->
   <div class="blob1 absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-       style="background:radial-gradient(circle,rgba(77,158,255,.12) 0%,transparent 70%);"></div>
+       style="background:radial-gradient(circle,rgba(184,146,74,.15) 0%,transparent 70%);"></div>
   <div class="blob2 absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full pointer-events-none"
-       style="background:radial-gradient(circle,rgba(77,158,255,.08) 0%,transparent 70%);"></div>
+       style="background:radial-gradient(circle,rgba(184,146,74,.1) 0%,transparent 70%);"></div>
 
   <!-- Marquee BG -->
   <div class="absolute bottom-10 left-0 w-full overflow-hidden opacity-[0.03] pointer-events-none select-none">
@@ -668,7 +668,7 @@
 
       <h1 class="reveal reveal-d1" style="font-family:'Playfair Display';font-weight:700;font-size:clamp(44px,7vw,96px);line-height:1.08;margin-bottom:28px;">
         Seu sorriso<br/>
-        <em style="font-style:italic;color:#4D9EFF;">perfeito</em><br/>
+        <em style="font-style:italic;color:#D4AA6A;">perfeito</em><br/>
         começa aqui.
       </h1>
 
@@ -694,15 +694,15 @@
       <!-- Stats -->
       <div class="reveal reveal-d4 flex flex-wrap gap-10 mt-16 pt-10 border-t border-white/10">
         <div>
-          <p style="font-family:'Playfair Display';font-size:40px;font-weight:700;color:#4D9EFF;line-height:1;">+2.000</p>
+          <p style="font-family:'Playfair Display';font-size:40px;font-weight:700;color:#D4AA6A;line-height:1;">+2.000</p>
           <p style="font-family:'Montserrat';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(239,244,255,.3);margin-top:6px;">Pacientes atendidos</p>
         </div>
         <div>
-          <p style="font-family:'Playfair Display';font-size:40px;font-weight:700;color:#4D9EFF;line-height:1;">12 anos</p>
+          <p style="font-family:'Playfair Display';font-size:40px;font-weight:700;color:#D4AA6A;line-height:1;">12 anos</p>
           <p style="font-family:'Montserrat';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(239,244,255,.3);margin-top:6px;">De experiência</p>
         </div>
         <div>
-          <p style="font-family:'Playfair Display';font-size:40px;font-weight:700;color:#4D9EFF;line-height:1;">99%</p>
+          <p style="font-family:'Playfair Display';font-size:40px;font-weight:700;color:#D4AA6A;line-height:1;">99%</p>
           <p style="font-family:'Montserrat';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(239,244,255,.3);margin-top:6px;">Satisfação</p>
         </div>
       </div>
@@ -715,8 +715,8 @@
       <span class="material-symbols-outlined text-green-400 text-base" style="font-variation-settings:'FILL' 1;">verified</span>
     </div>
     <div>
-      <p style="font-family:'Montserrat';font-weight:700;font-size:13px;color:#EFF4FF;">Clínica certificada</p>
-      <p style="font-family:'Inter';font-size:11px;color:rgba(239,244,255,.35);">CRO Paraná</p>
+      <p style="font-family:'Montserrat';font-weight:700;font-size:13px;color:#0A1628;">Clínica certificada</p>
+      <p style="font-family:'Inter';font-size:11px;color:rgba(10,22,40,.45);">CRO Paraná</p>
     </div>
   </div>
 </section>
@@ -725,7 +725,7 @@
 <!-- ═══════════════════════════
      SERVIÇOS — ANIMATED SLIDESHOW
 ═══════════════════════════ -->
-<section class="py-28 bg-[#020B1C]" id="servicos">
+<section class="py-28 bg-white" id="servicos">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
     <div class="mb-16">
@@ -735,7 +735,7 @@
       </span>
       <h2 class="reveal reveal-d1"
           style="font-family:'Playfair Display';font-weight:700;font-size:clamp(32px,4.5vw,56px);line-height:1.1;">
-        Tratamentos para<br/><em style="color:#4D9EFF;font-style:italic;">o seu sorriso.</em>
+        Tratamentos para<br/><em style="color:#B8924A;font-style:italic;">o seu sorriso.</em>
       </h2>
     </div>
 
@@ -832,7 +832,7 @@
 <!-- ═══════════════════════════
      EQUIPE
 ═══════════════════════════ -->
-<section class="py-28 bg-[#020B1C]" id="equipe">
+<section class="py-28 bg-[#F0EDE6]" id="equipe">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
     <div class="text-center mb-16">
@@ -842,7 +842,7 @@
       </span>
       <h2 class="reveal reveal-d1"
           style="font-family:'Playfair Display';font-weight:700;font-size:clamp(32px,4.5vw,56px);line-height:1.1;">
-        Especialistas que<br/><em style="color:#4D9EFF;font-style:italic;">cuidam de você.</em>
+        Especialistas que<br/><em style="color:#B8924A;font-style:italic;">cuidam de você.</em>
       </h2>
     </div>
 
@@ -883,7 +883,7 @@
 <!-- ═══════════════════════════
      DEPOIMENTOS
 ═══════════════════════════ -->
-<section class="py-28 bg-[#040F20]" id="depoimentos">
+<section class="py-28 bg-[#F7F6F2]" id="depoimentos">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-16 text-center">
     <span class="reveal block mb-4 text-accent"
           style="font-family:'Montserrat';font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;">
@@ -901,115 +901,115 @@
       <!-- Card 1 -->
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Fiz minhas lentes de contato dental aqui e o resultado superou todas as expectativas. Atendimento impecável do começo ao fim."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Fiz minhas lentes de contato dental aqui e o resultado superou todas as expectativas. Atendimento impecável do começo ao fim."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Ana Paula Ribeiro</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Professora</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Professora</p>
       </div>
 
       <!-- Card 2 (destaque) -->
-      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(77,158,255,.16) 0%,rgba(26,92,255,.09) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);">
+      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(184,146,74,.1) 0%,rgba(184,146,74,.04) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.7), 0 2px 12px rgba(10,22,40,.04);backdrop-filter:blur(12px);border:1px solid rgba(184,146,74,.2);">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.8);line-height:1.7;margin-bottom:20px;">"Tinha muito medo de dentista e a Dra. Sofia me recebeu com uma calma incrível. Hoje faço meu acompanhamento sem nenhum receio."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.7);line-height:1.7;margin-bottom:20px;">"Tinha muito medo de dentista e a Dra. Sofia me recebeu com uma calma incrível. Hoje faço meu acompanhamento sem nenhum receio."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Carlos Mendonça</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Empresário</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Empresário</p>
       </div>
 
       <!-- Card 3 -->
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Coloquei meu implante com o Dr. Rafael e em menos de um ano já estava com o dente definitivo. Profissional excepcional."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Coloquei meu implante com o Dr. Rafael e em menos de um ano já estava com o dente definitivo. Profissional excepcional."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Fernanda Costa</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Enfermeira</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Enfermeira</p>
       </div>
 
       <!-- Card 4 -->
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Fiz o clareamento dental e saí com o sorriso dos sonhos! Em apenas uma sessão o resultado foi surpreendente. Super recomendo."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Fiz o clareamento dental e saí com o sorriso dos sonhos! Em apenas uma sessão o resultado foi surpreendente. Super recomendo."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Juliana Martins</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Advogada</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Advogada</p>
       </div>
 
       <!-- Card 5 (destaque) -->
-      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(77,158,255,.16) 0%,rgba(26,92,255,.09) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);">
+      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(184,146,74,.1) 0%,rgba(184,146,74,.04) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.7), 0 2px 12px rgba(10,22,40,.04);backdrop-filter:blur(12px);border:1px solid rgba(184,146,74,.2);">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.8);line-height:1.7;margin-bottom:20px;">"Uso alinhadores há 8 meses e a diferença já é visível. O Dr. Lucas é extremamente atencioso e explica cada etapa do tratamento."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.7);line-height:1.7;margin-bottom:20px;">"Uso alinhadores há 8 meses e a diferença já é visível. O Dr. Lucas é extremamente atencioso e explica cada etapa do tratamento."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Rodrigo Almeida</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Engenheiro</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Engenheiro</p>
       </div>
 
       <!-- Card 6 -->
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Atendimento humanizado de verdade. Desde a recepção até o consultório, tudo muito organizado e acolhedor. Voltarei com certeza."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Atendimento humanizado de verdade. Desde a recepção até o consultório, tudo muito organizado e acolhedor. Voltarei com certeza."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Patrícia Souza</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Comerciante</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Comerciante</p>
       </div>
 
       <!-- Card 7 -->
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Fiz facetas de porcelana e estou apaixonada pelo resultado. Minha autoestima melhorou 100%. Indico para toda a família e amigos."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Fiz facetas de porcelana e estou apaixonada pelo resultado. Minha autoestima melhorou 100%. Indico para toda a família e amigos."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Mariana Oliveira</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Designer</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Designer</p>
       </div>
 
       <!-- Card 8 (destaque) -->
-      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(77,158,255,.16) 0%,rgba(26,92,255,.09) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);">
+      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(184,146,74,.1) 0%,rgba(184,146,74,.04) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.7), 0 2px 12px rgba(10,22,40,.04);backdrop-filter:blur(12px);border:1px solid rgba(184,146,74,.2);">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.8);line-height:1.7;margin-bottom:20px;">"Depois de anos com vergonha do meu sorriso, finalmente decidi fazer o tratamento. Melhor decisão da minha vida. Equipe incrível!"</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.7);line-height:1.7;margin-bottom:20px;">"Depois de anos com vergonha do meu sorriso, finalmente decidi fazer o tratamento. Melhor decisão da minha vida. Equipe incrível!"</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Lucas Ferreira</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Servidor Público</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Servidor Público</p>
       </div>
 
       <!-- Duplicados para loop infinito -->
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Fiz minhas lentes de contato dental aqui e o resultado superou todas as expectativas. Atendimento impecável do começo ao fim."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Fiz minhas lentes de contato dental aqui e o resultado superou todas as expectativas. Atendimento impecável do começo ao fim."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Ana Paula Ribeiro</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Professora</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Professora</p>
       </div>
-      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(77,158,255,.16) 0%,rgba(26,92,255,.09) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);">
+      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(184,146,74,.1) 0%,rgba(184,146,74,.04) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.7), 0 2px 12px rgba(10,22,40,.04);backdrop-filter:blur(12px);border:1px solid rgba(184,146,74,.2);">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.8);line-height:1.7;margin-bottom:20px;">"Tinha muito medo de dentista e a Dra. Sofia me recebeu com uma calma incrível. Hoje faço meu acompanhamento sem nenhum receio."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.7);line-height:1.7;margin-bottom:20px;">"Tinha muito medo de dentista e a Dra. Sofia me recebeu com uma calma incrível. Hoje faço meu acompanhamento sem nenhum receio."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Carlos Mendonça</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Empresário</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Empresário</p>
       </div>
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Coloquei meu implante com o Dr. Rafael e em menos de um ano já estava com o dente definitivo. Profissional excepcional."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Coloquei meu implante com o Dr. Rafael e em menos de um ano já estava com o dente definitivo. Profissional excepcional."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Fernanda Costa</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Enfermeira</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Enfermeira</p>
       </div>
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Fiz o clareamento dental e saí com o sorriso dos sonhos! Em apenas uma sessão o resultado foi surpreendente. Super recomendo."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Fiz o clareamento dental e saí com o sorriso dos sonhos! Em apenas uma sessão o resultado foi surpreendente. Super recomendo."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Juliana Martins</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Advogada</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Advogada</p>
       </div>
-      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(77,158,255,.16) 0%,rgba(26,92,255,.09) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);">
+      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(184,146,74,.1) 0%,rgba(184,146,74,.04) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.7), 0 2px 12px rgba(10,22,40,.04);backdrop-filter:blur(12px);border:1px solid rgba(184,146,74,.2);">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.8);line-height:1.7;margin-bottom:20px;">"Uso alinhadores há 8 meses e a diferença já é visível. O Dr. Lucas é extremamente atencioso e explica cada etapa do tratamento."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.7);line-height:1.7;margin-bottom:20px;">"Uso alinhadores há 8 meses e a diferença já é visível. O Dr. Lucas é extremamente atencioso e explica cada etapa do tratamento."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Rodrigo Almeida</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Engenheiro</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Engenheiro</p>
       </div>
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Atendimento humanizado de verdade. Desde a recepção até o consultório, tudo muito organizado e acolhedor. Voltarei com certeza."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Atendimento humanizado de verdade. Desde a recepção até o consultório, tudo muito organizado e acolhedor. Voltarei com certeza."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Patrícia Souza</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Comerciante</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Comerciante</p>
       </div>
       <div class="test-card lg rounded-2xl p-8">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.75);line-height:1.7;margin-bottom:20px;">"Fiz facetas de porcelana e estou apaixonada pelo resultado. Minha autoestima melhorou 100%. Indico para toda a família e amigos."</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.65);line-height:1.7;margin-bottom:20px;">"Fiz facetas de porcelana e estou apaixonada pelo resultado. Minha autoestima melhorou 100%. Indico para toda a família e amigos."</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Mariana Oliveira</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Designer</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Designer</p>
       </div>
-      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(77,158,255,.16) 0%,rgba(26,92,255,.09) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);">
+      <div class="test-card rounded-2xl p-8" style="background:linear-gradient(135deg,rgba(184,146,74,.1) 0%,rgba(184,146,74,.04) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.7), 0 2px 12px rgba(10,22,40,.04);backdrop-filter:blur(12px);border:1px solid rgba(184,146,74,.2);">
         <div class="flex gap-1 mb-4">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(239,244,255,.8);line-height:1.7;margin-bottom:20px;">"Depois de anos com vergonha do meu sorriso, finalmente decidi fazer o tratamento. Melhor decisão da minha vida. Equipe incrível!"</p>
+        <p style="font-family:'Inter';font-size:14px;font-style:italic;color:rgba(10,22,40,.7);line-height:1.7;margin-bottom:20px;">"Depois de anos com vergonha do meu sorriso, finalmente decidi fazer o tratamento. Melhor decisão da minha vida. Equipe incrível!"</p>
         <p style="font-family:'Montserrat';font-weight:800;font-size:13px;text-transform:uppercase;">Lucas Ferreira</p>
-        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,244,255,.28);margin-top:3px;">Servidor Público</p>
+        <p style="font-family:'Montserrat';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,22,40,.38);margin-top:3px;">Servidor Público</p>
       </div>
 
     </div>
@@ -1020,7 +1020,7 @@
 <!-- ═══════════════════════════
      CONTATO
 ═══════════════════════════ -->
-<section class="py-28 bg-[#020B1C]" id="contato">
+<section class="py-28 bg-[#F0EDE6]" id="contato">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="lg rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
 
@@ -1037,34 +1037,34 @@
         <form class="space-y-4" onsubmit="enviarWhatsApp(event)">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="space-y-1">
-              <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(239,244,255,.35);">Nome completo</label>
+              <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,22,40,.45);">Nome completo</label>
               <input id="nome" class="w-full rounded-xl p-4 text-cream placeholder-cream/20 text-sm outline-none transition-colors"
-                     style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-family:'Inter';"
+                     style="background:rgba(255,255,255,.85);border:1px solid rgba(10,22,40,.12);font-family:'Inter';"
                      placeholder="Seu nome" type="text" required/>
             </div>
             <div class="space-y-1">
-              <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(239,244,255,.35);">WhatsApp</label>
+              <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,22,40,.45);">WhatsApp</label>
               <input id="telefone" class="w-full rounded-xl p-4 text-cream placeholder-cream/20 text-sm outline-none transition-colors"
-                     style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-family:'Inter';"
+                     style="background:rgba(255,255,255,.85);border:1px solid rgba(10,22,40,.12);font-family:'Inter';"
                      placeholder="(46) 99999-9999" type="tel" required/>
             </div>
           </div>
           <div class="space-y-1">
-            <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(239,244,255,.35);">Serviço de interesse</label>
+            <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,22,40,.45);">Serviço de interesse</label>
             <select id="servico" class="w-full rounded-xl p-4 text-cream text-sm outline-none appearance-none"
-                    style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-family:'Inter';">
-              <option style="background:#020B1C;">Selecione um serviço</option>
-              <option style="background:#020B1C;">Dentística Geral</option>
-              <option style="background:#020B1C;">Estética Dental</option>
-              <option style="background:#020B1C;">Ortodontia</option>
-              <option style="background:#020B1C;">Clareamento Dental</option>
-              <option style="background:#020B1C;">Implante Dentário</option>
+                    style="background:rgba(255,255,255,.85);border:1px solid rgba(10,22,40,.12);font-family:'Inter';">
+              <option style="background:#F7F6F2;">Selecione um serviço</option>
+              <option style="background:#F7F6F2;">Dentística Geral</option>
+              <option style="background:#F7F6F2;">Estética Dental</option>
+              <option style="background:#F7F6F2;">Ortodontia</option>
+              <option style="background:#F7F6F2;">Clareamento Dental</option>
+              <option style="background:#F7F6F2;">Implante Dentário</option>
             </select>
           </div>
           <div class="space-y-1">
-            <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(239,244,255,.35);">Mensagem (opcional)</label>
+            <label style="font-family:'Montserrat';font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,22,40,.45);">Mensagem (opcional)</label>
             <textarea id="mensagem" class="w-full rounded-xl p-4 text-cream placeholder-cream/20 text-sm outline-none resize-none"
-                      style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-family:'Inter';"
+                      style="background:rgba(255,255,255,.85);border:1px solid rgba(10,22,40,.12);font-family:'Inter';"
                       placeholder="Como podemos te ajudar?" rows="3"></textarea>
           </div>
           <button type="submit"
@@ -1077,7 +1077,7 @@
       </div>
 
       <div class="relative p-10 md:p-16 flex flex-col justify-between overflow-hidden"
-           style="background:linear-gradient(135deg,rgba(77,158,255,.07) 0%,rgba(2,11,28,.95) 100%);">
+           style="background:linear-gradient(135deg,rgba(184,146,74,.08) 0%,rgba(240,237,230,.95) 100%);">
         <div class="relative z-10">
           <h3 style="font-family:'Montserrat';font-weight:800;font-size:20px;text-transform:uppercase;margin-bottom:36px;">Informações</h3>
           <div style="display:flex;flex-direction:column;gap:28px;">
@@ -1085,28 +1085,28 @@
               <span class="material-symbols-outlined text-accent flex-shrink-0">location_on</span>
               <div>
                 <p style="font-family:'Montserrat';font-weight:700;font-size:13px;margin-bottom:4px;">Endereço</p>
-                <p style="font-family:'Inter';font-size:13px;color:rgba(239,244,255,.4);line-height:1.6;">Rua das Acácias, 142 — Centro<br/>Francisco Beltrão, PR</p>
+                <p style="font-family:'Inter';font-size:13px;color:rgba(10,22,40,.5);line-height:1.6;">Rua das Acácias, 142 — Centro<br/>Francisco Beltrão, PR</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-accent flex-shrink-0">phone</span>
               <div>
                 <p style="font-family:'Montserrat';font-weight:700;font-size:13px;margin-bottom:4px;">WhatsApp</p>
-                <p style="font-family:'Inter';font-size:13px;color:rgba(239,244,255,.4);">(46) 99999-9999</p>
+                <p style="font-family:'Inter';font-size:13px;color:rgba(10,22,40,.5);">(46) 99999-9999</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-accent flex-shrink-0">schedule</span>
               <div>
                 <p style="font-family:'Montserrat';font-weight:700;font-size:13px;margin-bottom:4px;">Horário</p>
-                <p style="font-family:'Inter';font-size:13px;color:rgba(239,244,255,.4);line-height:1.6;">Segunda a Sexta: 08h às 18h<br/>Sábado: mediante agendamento</p>
+                <p style="font-family:'Inter';font-size:13px;color:rgba(10,22,40,.5);line-height:1.6;">Segunda a Sexta: 08h às 18h<br/>Sábado: mediante agendamento</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-accent flex-shrink-0">alternate_email</span>
               <div>
                 <p style="font-family:'Montserrat';font-weight:700;font-size:13px;margin-bottom:4px;">E-mail</p>
-                <p style="font-family:'Inter';font-size:13px;color:rgba(239,244,255,.4);">contato@odontovita.com.br</p>
+                <p style="font-family:'Inter';font-size:13px;color:rgba(10,22,40,.5);">contato@odontovita.com.br</p>
               </div>
             </div>
           </div>
@@ -1121,13 +1121,13 @@
     <div class="mt-10">
       <div class="flex items-center gap-3 mb-4 px-1">
         <span class="material-symbols-outlined text-accent text-base">location_on</span>
-        <span style="font-family:'Montserrat';font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(239,244,255,.35);">Como chegar</span>
+        <span style="font-family:'Montserrat';font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(10,22,40,.45);">Como chegar</span>
       </div>
-      <div class="rounded-3xl overflow-hidden" style="height:380px;border:1px solid rgba(255,255,255,.07);">
+      <div class="rounded-3xl overflow-hidden" style="height:380px;border:1px solid rgba(10,22,40,.1);">
         <iframe
           src="https://www.google.com/maps?q=Francisco+Beltrão,+PR,+Brasil&output=embed"
           width="100%" height="100%"
-          style="border:0; filter:invert(92%) hue-rotate(180deg) saturate(0.75) brightness(0.9);"
+          style="border:0;"
           allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
